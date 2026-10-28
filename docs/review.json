@@ -1,0 +1,65 @@
+{
+  "as_written": {
+    "risk": 79,
+    "grade": "F",
+    "counts": {
+      "critical": 2,
+      "high": 0,
+      "medium": 2,
+      "low": 1
+    },
+    "findings": [
+      {
+        "code": "full-admin",
+        "severity": "critical",
+        "statement": 2,
+        "message": "Allow * on * grants full administrator access",
+        "hint": "list the actions and resources the workload actually needs",
+        "points": 30
+      },
+      {
+        "code": "escalation-primitive",
+        "severity": "critical",
+        "statement": 3,
+        "message": "iam:PassRole on * is a known privilege-escalation path",
+        "hint": "scope the resource to the exact role or policy ARN",
+        "points": 30
+      },
+      {
+        "code": "unconditional-wildcard-resource",
+        "severity": "medium",
+        "statement": 2,
+        "message": "Allow on * with no condition",
+        "hint": "add a condition such as aws:SourceAccount or aws:PrincipalOrgID",
+        "points": 8
+      },
+      {
+        "code": "unconditional-wildcard-resource",
+        "severity": "medium",
+        "statement": 3,
+        "message": "Allow on * with no condition",
+        "hint": "add a condition such as aws:SourceAccount or aws:PrincipalOrgID",
+        "points": 8
+      },
+      {
+        "code": "sensitive-without-condition",
+        "severity": "low",
+        "statement": 3,
+        "message": "sensitive service allowed without a condition",
+        "hint": "consider aws:MultiFactorAuthPresent or a network condition",
+        "points": 3
+      }
+    ]
+  },
+  "hardened": {
+    "risk": 0,
+    "grade": "A",
+    "counts": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "findings": []
+  }
+}

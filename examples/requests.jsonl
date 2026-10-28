@@ -1,0 +1,7 @@
+{"action": "s3:GetObject", "resource": "arn:aws:s3:::build-artifacts/app.zip", "expect": "Allow"}
+{"action": "s3:DeleteObject", "resource": "arn:aws:s3:::production-logs/app.log", "expect": "Deny"}
+{"action": "s3:DeleteObject", "resource": "arn:aws:s3:::build-artifacts/old.zip", "expect": "Allow"}
+{"action": "iam:CreateUser", "resource": "arn:aws:iam::111122223333:user/new-hire", "expect": "Allow"}
+{"action": "kms:Decrypt", "resource": "arn:aws:kms:eu-west-1:111122223333:key/demo-key", "context": {"aws:SourceIp": "203.0.113.9"}, "expect": "Allow"}
+{"action": "kms:Decrypt", "resource": "arn:aws:kms:eu-west-1:111122223333:key/demo-key", "context": {"aws:SourceIp": "198.51.100.7"}, "expect": "Allow"}
+{"action": "ec2:TerminateInstances", "resource": "arn:aws:ec2:eu-west-1:111122223333:instance/i-0abc", "expect": "Allow"}
